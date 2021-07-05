@@ -1,8 +1,11 @@
 import { Button } from "@material-ui/core";
 import React, { useState } from "react";
+import { useHistory } from "react-router";
 import "./Banner.css";
 import Search from "./Search";
 const Banner = () => {
+  const history = useHistory();
+
   const [searchText, setSearchText] = useState("Search Dates");
   return (
     <div className="banner">
@@ -25,7 +28,14 @@ const Banner = () => {
         <h5>
           Plan a different kind of getaway to uncover the hidden gems near you
         </h5>
-        <Button variant="outlined">Explore Nearby</Button>
+        <Button
+          onClick={() => {
+            history.push("/search");
+          }}
+          variant="outlined"
+        >
+          Explore Nearby
+        </Button>
       </div>
     </div>
   );
